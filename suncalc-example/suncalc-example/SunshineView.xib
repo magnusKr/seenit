@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SunshineViewController" customModule="suncalc_example" customModuleProvider="target">
+            <connections>
+                <outlet property="centerConstSun" destination="vN5-Hr-jDH" id="Ic0-r5-6oc"/>
+                <outlet property="sunImage" destination="XG7-vf-4z7" id="V3o-sr-YjL"/>
+                <outlet property="sunriseLabel" destination="4J5-xA-D08" id="SCf-CP-9hA"/>
+                <outlet property="sunsetLabel" destination="HQA-Vt-chs" id="dIW-ME-tgU"/>
+                <outlet property="topConstSun" destination="J0l-4g-uNT" id="1DI-iy-xlz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="QxQ-ry-8rr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunImage" translatesAutoresizingMaskIntoConstraints="NO" id="XG7-vf-4z7">
+                    <rect key="frame" x="225" y="16" width="150" height="150"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQA-Vt-chs">
+                    <rect key="frame" x="549" y="496" width="35" height="13"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunrise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4J5-xA-D08">
+                    <rect key="frame" x="16" y="496" width="39" height="13"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="deviceRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="XG7-vf-4z7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="J0l-4g-uNT"/>
+                <constraint firstItem="4J5-xA-D08" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="8" id="NGX-c5-nwa"/>
+                <constraint firstAttribute="bottomMargin" secondItem="4J5-xA-D08" secondAttribute="bottom" constant="83" id="gmi-bg-tLK"/>
+                <constraint firstAttribute="bottomMargin" secondItem="HQA-Vt-chs" secondAttribute="bottom" constant="83" id="mes-t9-IaO"/>
+                <constraint firstItem="XG7-vf-4z7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vN5-Hr-jDH"/>
+                <constraint firstAttribute="trailingMargin" secondItem="HQA-Vt-chs" secondAttribute="trailing" constant="8" id="ydX-wf-Kcr"/>
+            </constraints>
+            <point key="canvasLocation" x="122" y="523"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sunImage" width="150" height="150"/>
+    </resources>
+</document>
