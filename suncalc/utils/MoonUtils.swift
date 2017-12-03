@@ -10,7 +10,7 @@ import Foundation
 
 class MoonUtils {
 	
-	class func getMoonCoords(d:Double) -> GeocentricCoordinates {
+	class func getMoonCoords(_ d:Double) -> GeocentricCoordinates {
 		// geocentric ecliptic coordinates of the moon
 		
 		let L:Double = Constants.RAD() * (218.316 + 13.176396 * d);   // ecliptic longitude

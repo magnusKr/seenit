@@ -26,9 +26,9 @@ class MonthCircle : UIView {
     
     init()
     {
-        super.init(frame: CGRectMake(0.0, 0.0, size, size))
+        super.init(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
         //self.center = origin
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         drawCircle()
         drawDots()
        
@@ -39,9 +39,9 @@ class MonthCircle : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
-        let insetRect = CGRectInset(rect, lineWidth/2, lineWidth/2)
+        let insetRect = rect.insetBy(dx: lineWidth/2, dy: lineWidth/2)
         
         let path = UIBezierPath(roundedRect: insetRect, cornerRadius: 20)
 
@@ -59,14 +59,14 @@ class MonthCircle : UIView {
 //        circlePath.setLineDash(dashes, count: 12, phase: 2)
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath.CGPath
-        shapeLayer.lineDashPattern = dashes
+        shapeLayer.path = circlePath.cgPath
+        shapeLayer.lineDashPattern = dashes as [NSNumber]
         shapeLayer.lineCap = kCALineJoinRound
         
         //change the fill color
-        shapeLayer.fillColor = UIColor.clearColor().CGColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
         //you can change the stroke color
-        shapeLayer.strokeColor = UIColor.whiteColor().CGColor
+        shapeLayer.strokeColor = UIColor.white.cgColor
         //you can change the line width
         shapeLayer.lineWidth = 10.0
         
@@ -80,14 +80,14 @@ class MonthCircle : UIView {
  
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath.CGPath
+        shapeLayer.path = circlePath.cgPath
         
    
         
         //change the fill color
-        shapeLayer.fillColor = UIColor.clearColor().CGColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
         //you can change the stroke color
-        shapeLayer.strokeColor = UIColor.whiteColor().CGColor
+        shapeLayer.strokeColor = UIColor.white.cgColor
         //you can change the line width
         shapeLayer.lineWidth = 1.0
         
@@ -106,7 +106,7 @@ extension UIView {
      :param: x CGFloat
      by DaRk-_-D0G
      */
-    func setX(x:CGFloat) {
+    func setX(_ x:CGFloat) {
         var frame:CGRect = self.frame
         frame.origin.x = x
         self.frame = frame
@@ -117,7 +117,7 @@ extension UIView {
      :param: y CGFloat
      by DaRk-_-D0G
      */
-    func setY(y:CGFloat) {
+    func setY(_ y:CGFloat) {
         var frame:CGRect = self.frame
         frame.origin.y = y
         self.frame = frame
@@ -128,7 +128,7 @@ extension UIView {
      :param: width CGFloat
      by DaRk-_-D0G
      */
-    func setWidth(width:CGFloat) {
+    func setWidth(_ width:CGFloat) {
         var frame:CGRect = self.frame
         frame.size.width = width
         self.frame = frame
@@ -139,7 +139,7 @@ extension UIView {
      :param: height CGFloat
      by DaRk-_-D0G
      */
-    func setHeight(height:CGFloat) {
+    func setHeight(_ height:CGFloat) {
         var frame:CGRect = self.frame
         frame.size.height = height
         self.frame = frame

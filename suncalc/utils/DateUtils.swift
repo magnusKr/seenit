@@ -15,16 +15,16 @@ let J2000:Double = 2451545
 
 class DateUtils {
 	
-	class func toJulian(date:NSDate) -> Double {
+	class func toJulian(_ date:Date) -> Double {
 		return Double(date.timeIntervalSince1970) / DAY_SECONDS - 0.5 + J1970
 	}
 	
-	class func fromJulian(j:Double) -> NSDate {
+	class func fromJulian(_ j:Double) -> Date {
 		let timeInterval = (j + 0.5 - J1970) * DAY_SECONDS
-		return NSDate(timeIntervalSince1970: timeInterval)
+		return Date(timeIntervalSince1970: timeInterval)
 	}
 	
-	class func toDays(date:NSDate) -> Double {
+	class func toDays(_ date:Date) -> Double {
 		return DateUtils.toJulian(date) - J2000
 	}
 }
