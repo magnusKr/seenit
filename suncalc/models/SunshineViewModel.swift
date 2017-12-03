@@ -10,31 +10,31 @@ import Foundation
 
 struct SunshineViewModel {
     
-    private var sunPos:SunPosition!
-    private var longitude: Double!
-    private var lattitude: Double!
-    private var date:NSDate!
-    private let screenWidth: Int!
-    private let screenHeight: Int!
+    fileprivate var sunPos:SunPosition!
+    fileprivate var longitude: Double!
+    fileprivate var lattitude: Double!
+    fileprivate var date:Date!
+    fileprivate let screenWidth: Int!
+    fileprivate let screenHeight: Int!
     
-    private let sunTimes:SunCalc!
-    private let sunPosition: SunPosition!
+    fileprivate let sunTimes:SunCalc!
+    fileprivate let sunPosition: SunPosition!
     
-    var sunSet: NSDate{
+    var sunSet: Date{
         get{
-          return sunTimes.sunset
+          return sunTimes.sunset as Date
         }
     }
     
-    var sunRise: NSDate{
+    var sunRise: Date{
         get {
-            return sunTimes.sunrise
+            return sunTimes.sunrise as Date
         }
     }
     
 
     
-    init(userLongitude longitude:Double, userLattitude lattitude:Double, userDate date:NSDate, screenWidth width:Int, screenHeight height:Int)
+    init(userLongitude longitude:Double, userLattitude lattitude:Double, userDate date:Date, screenWidth width:Int, screenHeight height:Int)
     {
         self.longitude = longitude
         self.lattitude = lattitude
@@ -45,19 +45,19 @@ struct SunshineViewModel {
         sunTimes = SunCalc(date: date, latitude: lattitude, longitude: longitude)
         sunPosition = SunCalc.getSunPosition(date, latitude: lattitude, longitude: longitude)
         
-        let formatter:NSDateFormatter = NSDateFormatter()
+        let formatter:DateFormatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        formatter.timeZone = NSTimeZone(abbreviation: "GMT+1")
+        formatter.timeZone = TimeZone(abbreviation: "GMT+1")
         
         
         
         print("Sunshineviewmodel initialized with longitude: : \(self.longitude) Lattitude : \(self.lattitude) Date: \(self.date)")
         print("Sunshineviewmodel initialized with width: : \(self.screenWidth) Height : \(self.screenHeight)")
-        print("Sunrise = \(formatter.stringFromDate(sunTimes.sunrise)) Sunset : \(formatter.stringFromDate(sunTimes.sunset))")
+        print("Sunrise = \(formatter.string(from: sunTimes.sunrise as Date)) Sunset : \(formatter.string(from: sunTimes.sunset as Date))")
         print("Sunposition: Altitude = \(sunPosition.altitude) Azimuth : \(sunPosition.azimuth)")
     }
     
-    func getXposition(heading: Double) -> Double {
+    func getXposition(_ heading: Double) -> Double {
         
         let sunAzimuth: Double = (sunPosition.azimuth*(180/M_PI)+180)
       

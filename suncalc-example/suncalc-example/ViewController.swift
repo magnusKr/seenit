@@ -54,32 +54,32 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIImagePickerC
 		super.didReceiveMemoryWarning()
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     
     }
     
     func setupCamera() {
         
         imagePicker.allowsEditing = false
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        imagePicker.cameraCaptureMode = .Photo
-        let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.cameraCaptureMode = .photo
+        let screenSize:CGSize = UIScreen.main.bounds.size
         
         let ratio:CGFloat = 4.0 / 3.0
         let cameraHeight: CGFloat = screenSize.width * ratio
         let scale:CGFloat = screenSize.height / cameraHeight
         
-        imagePicker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenSize.height - cameraHeight) / 2.0)
-        imagePicker.cameraViewTransform = CGAffineTransformScale(imagePicker.cameraViewTransform, scale, scale)
+        imagePicker.cameraViewTransform = CGAffineTransform(translationX: 0, y: (screenSize.height - cameraHeight) / 2.0)
+        imagePicker.cameraViewTransform = imagePicker.cameraViewTransform.scaledBy(x: scale, y: scale)
         
         self.sunShineViewController = SunshineViewController(nibName: "SunshineView", bundle: nil)
 
         sunShineViewController.view.frame = self.imagePicker.view.frame
         
-        imagePicker.modalPresentationStyle = .OverFullScreen
+        imagePicker.modalPresentationStyle = .overFullScreen
         imagePicker.showsCameraControls = false
         
-        presentViewController(imagePicker, animated: true) {
+        present(imagePicker, animated: true) {
             self.imagePicker.cameraOverlayView = self.sunShineViewController.view
         }
     }
